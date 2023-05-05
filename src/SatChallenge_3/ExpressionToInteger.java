@@ -38,6 +38,7 @@ public class ExpressionToInteger {
     public static Integer returnInt(ArrayList<String> arr) {
         // going from left to right, look for operators and the two elements ahead of it
         // replacing the first of the three element with the result, remove the following two elements
+        // removing the 3 elements and replace with single element which is the result
         // recursively run the array until we are left with just single element
 
         if(arr.size() == 1) {

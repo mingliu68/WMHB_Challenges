@@ -1,5 +1,7 @@
 package SatChallenge_2;
 
+import java.util.Arrays;
+
 /* You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
 
 You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
@@ -38,6 +40,45 @@ Constraints:
 */
 
 
-public class TwoDMatrix {
-    
+public class TwoDMatrix {   
+    public static void main(String[] args) {
+        
+        int[][] matrix1 = {{1,2,3}, {4,5,6}, {7,8,9}};
+        int[][] matrix2 = {{5,1,9,11}, {2,4,8,10}, {13,3,6,7}, {15,14,12,16}};
+
+        System.out.println(Arrays.deepToString(rotateMatrix(matrix1)));
+        System.out.println(Arrays.deepToString(rotateMatrix(matrix2)));
+
+    }
+
+    public static int[][] rotateMatrix(int[][] matrix) {
+        // rotating matrix result looks like transpose matrix (row to col, col to row), but in reversing order
+        // transpose, then reverting order
+
+        int length = matrix.length;
+
+        // transposing matrix
+        for(int i = 0; i < length; i++) {
+            // j start at i value, transposing matrix diagonally
+            for(int j = i; j < length; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+
+        // reversing order
+
+        for(int i = 0; i < length; i++) {
+            for(int j = 0; j < length / 2; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[i][length - 1 - j];
+                matrix[i][length - 1 - j] = temp;
+            }
+        }
+
+        return matrix;
+    }
+
+
 }
