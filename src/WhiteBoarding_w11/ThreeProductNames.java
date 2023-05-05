@@ -1,8 +1,14 @@
 package WhiteBoarding_w11;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+
 // You are given an array of strings products and a string searchWord.
 
-// Design a system that suggests at most three product names from products after each character of searchWord is typed. Suggested products should have common prefix with searchWord. If there are more than three products with a common prefix return the three lexicographically minimums products.
+// Design a system that suggests at most three product names from products after each character of searchWord is typed. 
+// Suggested products should have common prefix with searchWord. If there are more than three products with a common 
+// prefix return the three lexicographically minimums products.
 
 // Return a list of lists of the suggested products after each character of searchWord is typed.
 
@@ -28,5 +34,29 @@ package WhiteBoarding_w11;
 //     searchWord consists of lowercase English letters.
 
 public class ThreeProductNames {
-    
+    public static void main(String[] args) {
+        String[] products = {"mobile","mouse","moneypot","monitor","mousepad"};
+        Arrays.sort(products);
+        System.out.println(Arrays.toString(products));        
+
+        
+    }
+
+    public static ArrayList<ArrayList<String>> getProducts(String[] products, String searchWord) {
+
+        ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
+
+
+
+        Arrays.sort(products);
+        String searchSub = "";
+
+        for(int i = 0; i < searchWord.length(); i++) {
+            searchSub = searchWord.substring(0, i+1);
+
+        }
+
+
+        return result;
+    }
 }
