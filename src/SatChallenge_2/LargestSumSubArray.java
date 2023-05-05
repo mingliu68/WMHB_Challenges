@@ -71,10 +71,46 @@ public class LargestSumSubArray {
     // compare nums[firstIndex] and nums[i] and select the larger one
 
 
-public static int largestSum(int[] nums) {
-    if(nums.length == 1) return nums[0];
-    int largest = nums[0];
-    
+public static Integer largestSum(int[] nums) {
+    Integer largest = null;
+    Integer runningSum = null;
+    int idx = 0;
+
+    for(int i = 0; i < nums.length; i++) {
+        if(i == 0) {
+            largest = nums[i];
+            runningSum = nums[i];
+            idx = i;
+            continue;
+        }
+        runningSum += nums[i];
+        if(runningSum >= largest) {
+            largest = runningSum;
+            idx = i;
+        }
+
+    }
+
+    int bkIdx = idx;
+    largest = null;
+    runningSum = null;
+
+    for(int i = idx; i >= 0; i--) {
+        if(i == idx) {
+            largest = nums[i];
+            runningSum = nums[i];
+            bkIdx = i;
+            continue;
+        }
+        runningSum += nums[i];
+        if(runningSum >= largest) {
+            largest = runningSum;
+            bkIdx = i;
+        }
+
+    }
+
     return largest;
+    
 }
 }
