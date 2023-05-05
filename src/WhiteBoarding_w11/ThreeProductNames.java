@@ -36,26 +36,43 @@ import java.util.HashMap;
 public class ThreeProductNames {
     public static void main(String[] args) {
         String[] products = {"mobile","mouse","moneypot","monitor","mousepad"};
-        Arrays.sort(products);
-        System.out.println(Arrays.toString(products));        
+        String[] cities = {"havana"};
+        // Arrays.sort(products);
+        // System.out.println(Arrays.toString(products));        
 
-        
+        System.out.println(getProducts(products, "mouse"));
+        System.out.println(getProducts(cities, "havana"));
     }
 
     public static ArrayList<ArrayList<String>> getProducts(String[] products, String searchWord) {
+        // if arraylist result contains noarrays, search the entire product array
+        // if arraylist result contains arrays, search the previous (last array in result) for matching products
 
         ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
 
-
-
         Arrays.sort(products);
+
         String searchSub = "";
 
         for(int i = 0; i < searchWord.length(); i++) {
+
             searchSub = searchWord.substring(0, i+1);
 
-        }
+            ArrayList<String> subList = new ArrayList<>();
 
+            // if result.size is 0, search the entire product array
+           
+                
+                for(int j = 0; j < products.length; j++) {
+                  // if list already have 3 items, break
+                  if(subList.size() >= 3) break; 
+                  if(products[j].substring(0, i+1).equals(searchSub)){
+                    subList.add(products[j]);
+                  }
+                }
+        
+            result.add(subList);
+        }
 
         return result;
     }
