@@ -1,6 +1,11 @@
 package WhiteBoarding_w4;
 
-// Given an array of positive integers nums, return an array answer that consists of the digits of each integer in nums after separating them in the same order they appear in nums.
+import java.util.ArrayList;
+import java.util.Arrays;
+
+// Given an array of positive integers nums, return an array answer 
+// that consists of the digits of each integer in nums after separating 
+// them in the same order they appear in nums.
 
 // To separate the digits of an integer is to get all the digits it has in the same order.
 
@@ -31,5 +36,27 @@ package WhiteBoarding_w4;
 // 1 <= nums[i] <= 105
 
 public class SeperatingDigits {
-    
+    public static void main(String[] args) {
+        int[] nums1 = {13,25,83,77};
+        int[] nums2 = {7,1,3,9};
+        int[] nums3 = {152,326,313,92};
+
+        System.out.println(Arrays.toString(seperatingDigits(nums1)));
+        System.out.println(Arrays.toString(seperatingDigits(nums2)));
+        System.out.println(Arrays.toString(seperatingDigits(nums3)));
+    }
+
+    public static int[] seperatingDigits(int[] nums) {
+        ArrayList<Integer> result = new ArrayList<>();
+        for(int i = nums.length - 1; i >= 0; i--) {
+            while(nums[i] / 10 > 0) {
+                result.add(0, nums[i] % 10);
+                nums[i] = nums[i] / 10;
+            }
+            result.add(0, nums[i]);
+        }
+
+        int[] resultArr = result.stream().mapToInt(i -> i).toArray();
+        return resultArr;
+    }
 }

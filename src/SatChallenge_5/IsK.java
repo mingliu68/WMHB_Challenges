@@ -36,7 +36,7 @@ public class IsK {
         // System.out.println(Arrays.toString(arr));
         if (arr.length == 0) return false;
         if (arr.length == 1) return arr[0] == k;
-        if(sum == k) return true;
+        if (sum == k) return true;
     
         return (isK(Arrays.copyOfRange(arr, 1, arr.length), k, sum - arr[0]) || isK(Arrays.copyOfRange(arr, 0, arr.length-1), k, sum - arr[arr.length-1]));
       }
