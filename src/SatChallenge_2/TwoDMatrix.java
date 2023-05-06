@@ -45,13 +45,51 @@ public class TwoDMatrix {
         
         int[][] matrix1 = {{1,2,3}, {4,5,6}, {7,8,9}};
         int[][] matrix2 = {{5,1,9,11}, {2,4,8,10}, {13,3,6,7}, {15,14,12,16}};
+        int[][] matrix3 = {{1,2,3}, {4,5,6}, {7,8,9}};
+        int[][] matrix4 = {{5,1,9,11}, {2,4,8,10}, {13,3,6,7}, {15,14,12,16}};
 
-        System.out.println(Arrays.deepToString(rotateMatrix(matrix1)));
-        System.out.println(Arrays.deepToString(rotateMatrix(matrix2)));
-
+        System.out.println(Arrays.deepToString(rotateMatrix_Transpose(matrix1)));
+        System.out.println(Arrays.deepToString(rotateMatrix_Transpose(matrix2)));
+        System.out.println(Arrays.deepToString(rotateMatrix(matrix3)));
+        System.out.println(Arrays.deepToString(rotateMatrix(matrix4)));
     }
 
+
+    // solution rotating
     public static int[][] rotateMatrix(int[][] matrix) {
+
+        int length = matrix.length;
+        int depth = length / 2;
+
+        // start with each layer deep
+        for(int i = 0; i < depth; i++) {
+            int start = i;
+            int end = length - 1 - i;
+            for(int j = i; j < length - 1-i; j++) {
+
+                int temp = matrix[start][j];
+
+                // left to top
+                matrix[start][j] = matrix[length - 1 - j][start];
+
+                // bottom to left
+                matrix[length - 1 - j][start] = matrix[end][length - 1 - j];
+
+                // right to bottom
+                matrix[end][length - 1 - j] = matrix[j][end];
+
+                // top to right
+                matrix[j][end] = temp;
+
+            }
+        }
+
+        return matrix;
+    }
+
+
+    // solution using transpose & reversing
+    public static int[][] rotateMatrix_Transpose(int[][] matrix) {
         // rotating matrix result looks like transpose matrix (row to col, col to row), but in reversing order
         // transpose, then reverting order
 
