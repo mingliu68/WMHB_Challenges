@@ -1,5 +1,8 @@
 package SatChallenge_2;
 
+import java.util.HashSet;
+import java.util.Set;
+
 // Every valid email consists of a local name and a domain name, separated by the '@' sign. 
 //Besides lowercase letters, the email may contain one or more '.' or '+'.
 
@@ -48,5 +51,35 @@ package SatChallenge_2;
 public class ValidEmails {
     public static void main(String[] args) {
         
+        String[] emails1 = {"test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com", "testemail+david@lee.tcode.com"};
+        String[] emails2 = {"a@leetcode.com","b@leetcode.com","c@leetcode.com"};
+        System.out.println(getValidEmails(emails1));
+        System.out.println(getValidEmails(emails2));
+    }   
+
+    public static int getValidEmails(String[] emails) {
+
+        HashSet<String> seen = new HashSet<String>();
+        String local = "";
+        String domain = "";
+        for(int i = 0; i < emails.length; i++) {
+            // merging before and after .
+            // ignore + and everything after
+            // do not tough @ and after
+            local = emails[i].substring(0, emails[i].indexOf("@"));
+            domain = emails[i].substring(emails[i].indexOf("@"));
+            // need two backslashes before the dot, one to escape the slash so it gets thru
+            // and the other to escape the dot so it becomes literal
+            local = local.replaceAll("\\.", "");
+            if(local.contains("+")) {
+                local = local.substring(0, local.indexOf("+"));
+            };
+            seen.add(local + domain);
+
+        }
+
+        System.out.println(seen);
+        return seen.size();
+
     }
 }

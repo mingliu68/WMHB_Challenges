@@ -65,6 +65,9 @@ public class TwoDMatrix {
         for(int i = 0; i < depth; i++) {
             int start = i;
             int end = length - 1 - i;
+            
+            // length - 1 - i because we only need to rotate up to the one to last cell
+            // as the last cell has already been replaced by the first one in row 
             for(int j = i; j < length - 1-i; j++) {
 
                 int temp = matrix[start][j];
