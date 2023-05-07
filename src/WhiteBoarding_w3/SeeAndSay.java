@@ -11,20 +11,32 @@ public class SeeAndSay {
     
 
     public static void main(String[] args) {
-        System.out.println((char)1);
+
+        System.out.println(seeAndSay(4));
     }
 
-    public  String seeAndSay(int n) {
-        String result = "2";
-        if(n == 0) 
-            return result;
+    public static String seeAndSay(int n) {
+        if(n == 1) return "1";
 
+        String str = seeAndSay(n-1);
+        
+        Character prev = str.charAt(0);
+        int count = 1;
+        String result = "";
+
+        for(int i = 1; i < str.length();i++) {
+            if(str.charAt(i) == prev) {
+                count++;
+            } else {
+                result += String.valueOf(count) + prev;
+                prev = str.charAt(i);
+                count = 1;
+            }
+        }
+
+        result += String.valueOf(count) + prev;
         
 
-        for(int i = 0; i < n; i++) {
-            int start = 0;
-            
-        }
         return result;
     }
 }

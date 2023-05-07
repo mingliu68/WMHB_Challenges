@@ -40,10 +40,6 @@ public class MappingString {
     private static HashMap<String, Character> map;
 
 
-   
-    
-
-
 
     public static void main(String[] args) { 
         map = new HashMap<>();
