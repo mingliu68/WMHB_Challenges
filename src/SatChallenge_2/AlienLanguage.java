@@ -1,8 +1,6 @@
 package SatChallenge_2;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 
 // In an alien language, surprisingly, they also use English lowercase letters, 
 // but possibly in a different order. The order of the alphabet is some permutation of 

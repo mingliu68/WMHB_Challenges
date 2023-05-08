@@ -2,7 +2,6 @@ package WhiteBoarding_w5;
 
 import java.util.HashMap;
 
-import javax.management.openmbean.SimpleType;
 
 // Given an array arr of integers, check if there exist two indices i and j such that :
 

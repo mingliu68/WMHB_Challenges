@@ -1,6 +1,5 @@
 package WhiteBoarding_w9;
 
-import java.util.ArrayList;
 
 /*
 We build a table of n rows (1-indexed). We start by writing 0 in the 1st row. Now in every subsequent 

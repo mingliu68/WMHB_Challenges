@@ -1,6 +1,5 @@
 package WhiteBoarding_w6;
 
-import java.rmi.StubNotFoundException;
 
 // Given a 2-dimensional array of numbers (i.e. an array of arrays), write a function
 //   that returns the sum of all numbers that are *low points*. A low point is any
@@ -33,6 +32,7 @@ public class SumOfLowPoints {
         boolean right;
         for(int i = 0; i < matrix.length; i++) {
             for(int j = 0; j < matrix[0].length; j++) {
+
                 top = i-1 < 0 ? true : matrix[i-1][j] > matrix[i][j] ? true : false;
                 bottom = i+1 >= matrix.length ? true : matrix[i+1][j] > matrix[i][j] ? true : false;
                 left = j-1 < 0 ? true : matrix[i][j-1] > matrix[i][j] ? true : false;

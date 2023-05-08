@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +33,15 @@ public class GroupSum {
                 } else {
                     int[] arr1 = Arrays.copyOfRange(arr, 0, i);
                     int[] arr2 = Arrays.copyOfRange(arr, i+1, arr.length);
-                    int[] newArr = ArraysUtils.addAll(arr1, arr2);
+                    int len1 = arr1.length;
+                    int len2 = arr2.length;
+                    int[] newArr = new int[len1 + len2];
+
+                    System.arraycopy(arr1, 0, newArr, 0, len1);
+                    System.arraycopy(arr2, 0, newArr, len1, len2);
+
+                    // Arrays.addAll(arr1, arr2);
+
                     return getToZero(target - arr[i], newArr);
                 }
                 

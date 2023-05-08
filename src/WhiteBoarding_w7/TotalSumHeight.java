@@ -1,6 +1,5 @@
 package WhiteBoarding_w7;
 
-import java.util.Arrays;
 
 // There is a city composed of n x n blocks, where each block contains a single building shaped 
 // like a vertical square prism. You are given a 0-indexed n x n integer matrix grid where 

@@ -1,7 +1,6 @@
 package SatChallenge_2;
 
 import java.util.HashSet;
-import java.util.Set;
 
 // Every valid email consists of a local name and a domain name, separated by the '@' sign. 
 //Besides lowercase letters, the email may contain one or more '.' or '+'.

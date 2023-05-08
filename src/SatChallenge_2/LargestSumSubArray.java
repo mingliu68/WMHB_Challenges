@@ -91,10 +91,10 @@ public static Integer largestSum(int[] nums) {
 
     }
 
-    int bkIdx = idx;
+    
     largest = null;
     runningSum = null;
-
+    int bkIdx = idx;
     for(int i = idx; i >= 0; i--) {
         if(i == idx) {
             largest = nums[i];

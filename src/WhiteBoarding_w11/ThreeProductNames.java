@@ -2,7 +2,6 @@ package WhiteBoarding_w11;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 // You are given an array of strings products and a string searchWord.
 
