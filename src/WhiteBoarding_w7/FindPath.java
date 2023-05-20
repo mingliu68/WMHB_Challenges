@@ -47,7 +47,7 @@ public class FindPath {
         //     return null;
         // }     
         
-        // is the current position already visited in the current path
+        // is the current position already visited in the past in current path
         for(Integer[] position : currentPath) {
             if(position[0] == currentR && position[1] == currentC) {
                 return null;
