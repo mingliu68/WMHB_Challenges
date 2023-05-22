@@ -29,7 +29,7 @@ public class MathOperation {
         System.out.println("Solution: " + solution(arr2, 10, opers));
     }
 
-    // NOT WORKING
+
     public static ArrayList<String> solution(int[] arr, int sum, ArrayList<String> operations) {
         
         String lastOperation = operations.size() > 0 ?  operations.get(operations.size() - 1) : null;
