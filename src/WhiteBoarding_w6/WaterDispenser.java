@@ -2,7 +2,6 @@ package WhiteBoarding_w6;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 // You have a water dispenser that can dispense cold, warm, and hot water. 
 // Every second, you can either fill up 2 cups with different types of water,
