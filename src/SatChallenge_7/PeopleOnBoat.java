@@ -1,6 +1,5 @@
 package SatChallenge_7;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 /*
@@ -41,8 +40,6 @@ public class PeopleOnBoat {
         System.out.println(minBoats(weight1, 3));
         System.out.println(minBoats(weight2, 3));
         System.out.println(minBoats(weight3, 5));
-
-
     }
 
     public static int minBoats(int[] weights, int limit) {
