@@ -54,7 +54,40 @@ public class MatrixToZero {
         setToZero(matrix2);
     }
 
+
     public static int[][] setToZero(int[][] matrix) {
+        // space O(mn)
+        Boolean[][] isZero = new Boolean[matrix.length][matrix[0].length];
+        // O(mn)
+        for(int i = 0; i < matrix.length; i++) {
+            for(int j = 0; j < matrix[0].length; j++) {
+                isZero[i][j] = matrix[i][j] == 0 ? true : false;
+            }
+        }
+        
+        // O(mn)
+        for(int i = 0; i < matrix.length; i++) {
+            for(int j = 0; j < matrix[0].length; j++) {
+                if(isZero[i][j]) {
+                    Arrays.fill(matrix[i], 0);
+                    // O(m)
+                    for(int[] row : matrix) {
+                        row[j] = 0;
+                    }
+                }
+            }
+        }
+
+        System.out.println();
+        for(int[] row : matrix) {
+            System.out.println(Arrays.toString(row)); 
+        }
+        System.out.println();
+
+        return matrix;
+    }
+
+    public static int[][] setToZero_old(int[][] matrix) {
         
         // creating another matrix of Booleans to keep track if the original is 0 or not
         Boolean[][] isZero = new Boolean[matrix.length][matrix[0].length];
