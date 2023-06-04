@@ -1,4 +1,8 @@
 package WhiteBoarding_w14;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /*
  * Given an array of integers arr, sort the array by performing a series of pancake flips.
 
@@ -33,5 +37,59 @@ Constraints:
 All integers in arr are unique (i.e. arr is a permutation of the integers from 1 to arr.length).
  */
 public class PancakeFlip {
+    public static void main(String[] args) {
+        int[] arr1 = { 3, 2, 4, 1 };
+        int[] arr2 = { 5, 7, 4, 8, 2, 2, 5, 4, 2, 11, 19, 2, 3};
+        System.out.println(solution(arr1));
+        System.out.println(Arrays.toString(arr1));
+        System.out.println(solution(arr2));
+        System.out.println(Arrays.toString(arr2));
+    }
     
+    public static ArrayList<Integer> solution(int[] arr) {
+        int k = arr.length;
+        int currMax = arr.length;
+        ArrayList<Integer> flips = new ArrayList<>();
+        // find the max idx, and use max idx + 1 as k
+        
+        while(currMax > 0) {
+            // get max indexint 
+            int foundMaxIdx = getMaxIdx(arr, currMax);    
+            
+            if(foundMaxIdx == currMax - 1) {
+                currMax--;
+                continue;
+            } else {
+                k = foundMaxIdx + 1;
+            }
+            // move max to beginning
+            pancakeFlipArr(arr, k);
+            flips.add(k);
+            // move max to end of subarray
+            pancakeFlipArr(arr, currMax);
+            flips.add(currMax);
+            currMax--;
+        }
+
+        return flips;
+
+    }
+
+    public static int[] pancakeFlipArr(int[] arr, int k) {
+        for(int i = 0; i < k / 2; i++ ) {
+            int temp = arr[i];
+            arr[i] = arr[k - 1 - i];
+            arr[k - 1 - i] = temp;
+        }
+        return arr;
+    }
+
+    public static int getMaxIdx(int[] arr, int k) {
+        if(arr.length == 1) return 1;
+        int maxIdx = 0;
+        for(int i = 0; i < k; i++) {
+            maxIdx = arr[i] > arr[maxIdx] ? i : maxIdx;
+        }
+        return maxIdx;
+    }
 }
