@@ -54,7 +54,7 @@ public class MatrixToZero {
         setToZero(matrix2);
     }
 
-
+    // O(m^2n)
     public static int[][] setToZero(int[][] matrix) {
         // space O(mn)
         Boolean[][] isZero = new Boolean[matrix.length][matrix[0].length];
